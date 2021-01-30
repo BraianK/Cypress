@@ -41,3 +41,67 @@ npm install cypress --save-dev
 
 ## Otworzenie Cypress
 
+Jeżeli używamy npm do instalacji to po zainstalowaniu znajdziemy Cypress w ./node_modules
+
+Pełna ścieżka:
+```
+./node_modules/.bin/cypress open
+```
+
+## Przeglądarki
+
+Cypress Test Runner próbuje znaleźć wszystkie zgodne przeglądarki na komputerze użytkownika. 
+
+## Dodanie pliku testowego
+
+* Tworzymy plik testowy np. sample_spec.js
+*  Cypress zaktualizuje naszą listę specyfikacji
+* Otwieramy Cypress Test Runner
+
+Następnie tworzymy nowy plik w lokalizacji "cypress/integration", która została dla nas utworzona:
+```
+touch {your_project}/cypress/integration/sample_spec.js
+```
+Po utworzeniu tego pliku powinniśmy zobaczyć, że Cypress Test Runner natychmiast wyświetli go na liście testów integracji. Cypress monitoruje pliki specyfikacji pod kątem wszelkich zmian i automatycznie wyświetla wszelkie zmiany.
+
+## Napisz pierwszy test
+
+Mamy zamiar:
+
+* Napisać test zakończony sukcesem
+* Napisać test zakończony niepowodzeniem
+* Obserwować działanie w tle
+
+W miarę zapisywania naszego nowego pliku testowego zobaczymy, że przeglądarka automatycznie ładuje się ponownie w czasie rzeczywistym.
+
+Otwórz swoje ulubione IDE i dodaj poniższy kod do naszego pliku testowego sample_spec.js.
+
+```
+describe('My First Test', () => {
+  it('Does not do much!', () => {
+    expect(true).to.equal(true)
+  })
+})
+```
+
+
+Po zapisaniu tego pliku powinieneś zobaczyć ponowne załadowanie przeglądarki.
+
+![pierwszy_test](pierwszy_test.png)
+
+Następnie napiszmy nasz test, który powinnien zakończyć się niepowodzeniem.
+
+```
+describe('My First Test', () => {
+  it('Does not do much!', () => {
+    expect(true).to.equal(false)
+  })
+})
+```
+
+
+Po ponownym zapisaniu zobaczysz, że Cypress wyświetla negatywny test na czerwono.
+
+![zly_test](zly_test.png)
+
+W ten sposób zainstalowaliśmy Cypress i wykonaliśmy dwa przykładowe testy.
